@@ -10,12 +10,12 @@ class Post < ActiveRecord::Base
   after_save :update_user_posts_counter
 
   def recent_comment
-    comments.limit(5).order(created_at: :asc)
+    comments.limit(5).order(created_at: :desc)
   end
 
   private
 
   def update_user_posts_counter
-    author.increment!(posts_counter)
+    author.increment!(:post_counter, 1)
   end
 end
