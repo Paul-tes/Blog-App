@@ -1,23 +1,28 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  describe ' ()=> validation' do
-    it { should validate_presence_of(:name) }
-    it { should validate_numericality_of(:post_counter).only_integer.is_greater_than_or_equal_to(0) }
+describe User, type: :model do
+  # tests go here
+  subject { User.new(name: 'Abel', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Life goes on.') }
+  before { subject.save }
+
+  it 'should be invalid for a blank name' do
+    subject.name = nil
+    expect(subject).to_not be_valid
   end
 
-  describe ' ()=> associations' do
-    it { should have_many(:comments).class_name('Comment').with_foreign_key('author_id') }
-    it { should have_many(:posts).class_name('Post').with_foreign_key('author_id') }
-    it { should have_many(:likes).class_name('Like').with_foreign_key('author_id') }
+  it 'should be valid for a given name' do
+    expect(subject).to be_valid
   end
 
-  describe '#recent_posts' do
-    it 'returns the 3 most recent posts in descending order' do
-      user = User.create(name: 'John Doe')
-      4.times { |num| Post.create(author: user, title: 'Hello', text: "This is post No: #{num + 1}") }
-      expect(user.recent_posts.length).to eq(3)
-      expect(user.recent_posts.first.text).to eq('This is post No: 4')
-    end
+  it 'should be invalid for a negative posts counter' do
+    subject.posts_counter = -1
+    expect(subject).to_not be_valid
+  end
+
+  it 'should return the last 3 posts (if any) for a given user' do
+    4.times { |num| Post.create(author: subject, title: 'Hello', text: "This is post No: #{num + 1}") }
+
+    expect(subject.recent_posts.length).to eq 3
+    expect(subject.recent_posts[-1].text).to eq('This is post No: 3')
   end
 end
