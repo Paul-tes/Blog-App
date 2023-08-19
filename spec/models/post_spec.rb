@@ -1,35 +1,43 @@
 require 'rails_helper'
 
-describe Post, type: :model do
+RSpec.describe Post, type: :model do
   before :each do
-    @author = User.new(name: 'Abel', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Life goes on.')
+    @author = User.new(name: 'Paul', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Life goes on.')
     @post = Post.new(author: @author, title: 'My 1st blog', text: 'This is my first blog post')
   end
 
-  it 'should be invalid for a blank title' do
-    @post.title = nil
-    expect(@post).to_not be_valid
+  describe '[ Validations ]' do
+    it 'should be invalid for a blank title' do
+      @post.title = nil
+      expect(@post).to_not be_valid
+    end
+
+    it 'should be valid for a given title' do
+      expect(@post).to be_valid
+    end
+
+    it 'should be invlaid for a negative comments counter' do
+      @post.comments_counter = -1
+      expect(@post).to_not be_valid
+    end
+
+    it 'should be invlaid for a negative posts counter' do
+      @post.likes_counter = -1
+      expect(@post).to_not be_valid
+    end
+
+    it 'should be invalid for title longer than 250 characters' do
+      @post.title = 'This is an intentionally long title for testing purposes...maybe we should add something
+      more just for the heck of it, here we go bla bla bla bla bla bla bla.
+      I think this looks enough, ow no we still have a few more Music, Art, Code just random things'
+      expect(@post).to_not be_valid
+    end
   end
 
-  it 'should be valid for a given title' do
-    expect(@post).to be_valid
-  end
-
-  it 'should be invlaid for a negative comments counter' do
-    @post.comments_counter = -1
-    expect(@post).to_not be_valid
-  end
-
-  it 'should be invlaid for a negative posts counter' do
-    @post.likes_counter = -1
-    expect(@post).to_not be_valid
-  end
-
-  it 'should be invalid for title longer than 250 characters' do
-    @post.title = 'This is an intentionally long title for testing purposes...maybe we should add something
-    more just for the heck of it, here we go bla bla bla bla bla bla bla.
-    I think this looks enough, ow no we still have a few more Music, Art, Code just random things'
-    expect(@post).to_not be_valid
+  describe '[ Association ]' do
+    it { should have_many(:likes).class_name('Like').with_foreign_key('post_id') }
+    it { should have_many(:comments).class_name('Comment').with_foreign_key('post_id') }
+    it { should belong_to(:author).class_name('User').with_foreign_key('author_id') }
   end
 
   describe '#update_posts_count' do
