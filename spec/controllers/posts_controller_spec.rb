@@ -28,7 +28,7 @@ RSpec.describe PostsController, type: :request do
       expect(response).to render_template(:show)
       html = Nokogiri::HTML(response.body)
       h1 = html.at('h1')
-      expect(h1.text).to eq('This is a Post')
+      expect(h1.text.strip).to eq('This is a Post')
     end
   end
 end

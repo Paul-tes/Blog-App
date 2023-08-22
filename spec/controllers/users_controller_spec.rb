@@ -28,7 +28,7 @@ RSpec.describe UsersController, type: :request do
       expect(response).to render_template(:show)
       html = Nokogiri::HTML(response.body)
       h1 = html.at('h1')
-      expect(h1.text).to eq('This is detail of the user ')
+      expect(h1.text).to eq('This is detail of the user')
     end
   end
 end
