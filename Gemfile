@@ -51,6 +51,9 @@ gem 'bootsnap', require: false
 # use matcher methods for rspec test
 gem 'shoulda-matchers', '~> 4.0'
 
+# user rails controller testing tools
+gem 'rails-controller-testing'
+
 # Rspec methods
 gem 'factory_bot_rails'
 
