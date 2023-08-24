@@ -27,6 +27,9 @@ gem 'stimulus-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
+# for pagination
+gem 'will_paginate'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -50,6 +53,9 @@ gem 'bootsnap', require: false
 
 # use matcher methods for rspec test
 gem 'shoulda-matchers', '~> 4.0'
+
+# user rails controller testing tools
+gem 'rails-controller-testing'
 
 # Rspec methods
 gem 'factory_bot_rails'
