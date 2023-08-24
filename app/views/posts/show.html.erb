@@ -15,7 +15,7 @@
         <%=@post.text%>
       </div>
       <div class="comments">
-        <% @post.comments.each do |comment| %>
+        <% @post.recent_comments.each do |comment| %>
           <%= render 'shared/comment', comment: comment %>
         <% end %>
       </div>
