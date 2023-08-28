@@ -11,7 +11,7 @@
       <div class="posts-comments">
         <% @posts.each_with_index do |post, post_no| %>
           <div class="post-comments">
-            <%= render 'shared/post_info', post: post, post_no: post_no %>
+              <%= render 'shared/post_info', post: post, post_no: post_no, user: @user %>
             <div class="comments">
               <% post.recent_comments.each do |comment| %>
                 <%= render 'shared/comment', comment: comment %>
@@ -20,7 +20,7 @@
           </div>
         <% end %>
         <button class="btn">
-          <%= link_to 'Pagination', user_post_path(@user, @posts.first) %>
+          <%= link_to 'Pagination'%>
         </button>
       </div>
     </div>
