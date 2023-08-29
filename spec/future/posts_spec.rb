@@ -16,5 +16,29 @@ RSpec.feature 'Posts', type: :feature do
     @comment2 = Comment.create(post: @last_post, author: @user2, text: 'This is the 2nd comment on the last post')
     @comment3 = Comment.create(post: @last_post, author: @user2, text: 'This is the 3rd comment on the last post')
   end
+
+  describe 'post#index' do
+    before(:each) do
+      visit user_posts_path(@user)
+    end
+    it 'should show username for a user' do
+      expect(page).to have_content('David')
+    end
+
+    it "should show user's profile picture" do
+      expect(page.body).to include('https://somepic.potraits/5158')
+    end
+
+    it 'should show the number of posts for each user' do
+      expect(page).to have_content('Number of posts: 4')
+    end
+
+    it "should show the post's title" do
+      expect(page).to have_content('Hello, one')
+      expect(page).to have_content('Hello, two')
+      expect(page).to have_content('Hello, three')
+    end
+end
+  
 end
 
