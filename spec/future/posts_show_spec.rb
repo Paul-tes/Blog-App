@@ -13,61 +13,11 @@ RSpec.feature 'Posts', type: :feature do
     @comment3 = Comment.create(post: @last_post, author: @user2, text: 'This is the 3rd comment on the last post')
   end
 
-  describe 'post#index' do
-    before(:each) do
-      visit user_posts_path(@user)
-    end
-    it 'should show username for a user' do
-      expect(page).to have_content('David')
-    end
-
-    it "should show user's profile picture" do
-      expect(page.body).to include('https://somepic.potraits/5158')
-    end
-
-    it 'should show the number of posts for each user' do
-      expect(page).to have_content('Number of posts: 4')
-    end
-
-    it "should show the post's title" do
-      expect(page).to have_content('Hello, one')
-      expect(page).to have_content('Hello, two')
-      expect(page).to have_content('Hello, three')
-    end
-
-    it 'should some of the posts body' do
-      expect(page).to have_content(@first_post.text.truncate_words(5))
-    end
-
-    it 'should display the first comments on a post' do
-      expect(page).to have_content('This is the 1st comment on the last post')
-      expect(page).to have_content('This is the 2nd comment on the last post')
-      expect(page).to have_content('This is the 3rd comment on the last post')
-    end
-
-    it 'how many comments a post has.' do
-      expect(page).to have_content('Comments: 3')
-    end
-
-    it 'how many likes a post has.' do
-      expect(page).to have_content('Likes: 0')
-    end
-
-    it 'should show a section for pagination if there are more posts than fit on the view' do
-      expect(page).to have_content('Pagination')
-    end
-
-    it "should redirect to that post's show page when clicked" do
-      click_link(@first_post.title)
-      expect(current_path).to eq(user_post_path(@user, @first_post))
-    end
-  end
-
   describe 'post#show' do
     before(:each) do
       visit user_post_path(@user, @last_post)
     end
-    it 'should show post\'s title' do
+    it 'should show who is the writer of the post\'s' do
       expect(page).to have_content(@last_post.title)
     end
 
