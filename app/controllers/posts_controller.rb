@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = Post.where(author_id: params[:user_id])
+    @posts = @user.posts.includes(:comments)
   end
 
   def new
@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(posts_params)
-    @post.author = User.find(params[:user_id])
+    @post.author = current_user
     if @post.save
       redirect_to user_posts_path(id: @post.author_id)
     else
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:author).find(params[:id])
   end
 
   private

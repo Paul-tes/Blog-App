@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
     @comment.author_id = params[:user_id]
     @comment.post_id = params[:post_id]
     @post = Post.find(params[:post_id])
-
     if @comment.save
       redirect_to user_posts_path(@post.author_id)
     else

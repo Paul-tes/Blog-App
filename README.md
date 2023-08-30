@@ -158,6 +158,11 @@ Example:
 - GitHub: [@githubhandle](https://github.com/paul-tes)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/paul-tesfaye)
 
+👤 **Baqar**
+
+- GitHub: [@githubhandle](https://github.com/baqar-abbas)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/baqarlinkedin/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
