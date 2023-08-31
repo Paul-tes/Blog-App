@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet"> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   </head>
 
@@ -9,6 +8,10 @@
     <div class="root-container user-container">
       <%= render 'shared/user_info', user: @user %>
       <div class="bio-container">
+      <div class="back-link-container">
+        <%= link_to "Home > ", authenticated_root_path, class: "navigational-link" %>
+        <%= link_to "Back", :back, class: "back-link" %>
+      </div>
         <h3>Bio</h3>
         <p class="bio"> <%=@user.bio%> </p>
       </div>
