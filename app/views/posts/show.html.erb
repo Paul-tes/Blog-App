@@ -7,6 +7,10 @@
 
   <body>
     <div class="root-container post-detail-container">
+      <div class="back-link-container">
+        <%= link_to "Home > ", authenticated_root_path, class: "navigational-link" %>
+        <%= link_to "Back", :back, class: "back-link" %>
+      </div>
       <div class="post-header">
         <div class="user-name"><%= @post.title %> by: <%=@post.author.name%></div>
         <div class="comments-likes">Comments: <%=@post.comments_counter%>, Likes: <%=@post.likes_counter%></div>
