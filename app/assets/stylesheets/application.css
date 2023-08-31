@@ -115,6 +115,9 @@ a {
 .post-detail-container {
   display: flex;
   flex-direction: column;
+  background-color: aliceblue;
+  margin-top: 10%;
+  gap: 5px;
 }
 
 .post-header {
@@ -221,13 +224,14 @@ a {
   border-radius: 6px;
 }
 
-.post-detail-container {
-  background-color: aliceblue;
-  margin-top: 10%;
-}
-
 .field {
   margin-top: 15px;
+}
+
+.profile-customize-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 }
 
 @media (max-width: 800px) {

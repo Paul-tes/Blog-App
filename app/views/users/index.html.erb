@@ -6,12 +6,14 @@
 
   <body>
   <div class="root-container users">
+  <div class="profile-customize-btns">
     <% unless user_signed_in? %>
       <%= button_to "Login", new_user_session_path, class: "login-btn" %>
     <% else %>
       <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "logout-btn" %>
     <% end %>
-
+    <%= button_to "Edit Profile", edit_user_registration_path, class: "logout-btn"%>
+  </div>
       <% @users.each do |user| %>
         <%= link_to(user) do %>
           <%= render "shared/user_info", user: user %>
