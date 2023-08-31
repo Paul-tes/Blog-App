@@ -172,6 +172,64 @@ a {
   margin-bottom: 10px;
 }
 
+.signup-heading,
+.login-heading {
+  margin-top: 10%;
+}
+
+.login-signup-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  gap: 1rem;
+  margin-left: 30%;
+}
+
+.signup-input {
+  border: 1px solid #ccc;
+  outline: none;
+  width: 60%;
+  padding: 4px 8px;
+  margin-bottom: 10px;
+}
+
+.signup-input:focus {
+  background-color: hsl(0, 0%, 90%);
+}
+
+.navigational-link {
+  text-decoration: none;
+}
+
+.logout-btn {
+  border: none;
+  color: #333;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0 15px;
+  line-height: 32px;
+  height: auto;
+  display: inline-block;
+  text-align: center;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.logout-btn:hover {
+  background-color: #474747;
+  color: #cacaca;
+  border-radius: 6px;
+}
+
+.post-detail-container {
+  background-color: aliceblue;
+  margin-top: 10%;
+}
+
+.field {
+  margin-top: 15px;
+}
+
 @media (max-width: 800px) {
   .root-container {
     width: 100%;
