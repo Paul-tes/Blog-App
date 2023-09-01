@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   </head>
 
   <body>
     <div class="root-container post-detail-container">
-      <div class="back-link-container">
-        <%= link_to "Home > ", authenticated_root_path, class: "navigational-link" %>
-        <%= link_to "Back", :back, class: "back-link" %>
-      </div>
       <div class="post-header">
         <div class="user-name"><%= @post.title %> by: <%=@post.author.name%></div>
         <div class="comments-likes">Comments: <%=@post.comments_counter%>, Likes: <%=@post.likes_counter%></div>
@@ -20,7 +15,7 @@
       </div>
       <div class="comments">
         <% @post.recent_comments.each do |comment| %>
-          <%= render 'shared/comment', comment: comment %>
+          <%= render 'shared/comment', comment: comment, post: @post, user: @user %>
         <% end %>
       </div>
     </div>

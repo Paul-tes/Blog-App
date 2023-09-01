@@ -1,3 +1,8 @@
 <div class="comment">
-  <span class="user-name"><%=comment.author.name%></span>: <span><%=comment.text%></span>
+  <span class="user-name"><%=comment.author.name%>: <%=comment.text%></span>
+  <% if can? :destroy, comment %>
+    <%= form_with model: comment, url: user_post_comment_path(user, post, id: comment.id), method: :delete do |f| %>
+        <%= f.submit "X", class: 'remove-btn' %>
+    <% end %>
+  <% end %>
 </div>
