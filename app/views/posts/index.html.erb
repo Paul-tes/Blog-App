@@ -6,6 +6,10 @@
 
   <body>
     <div class="root-container posts-comments-container">
+      <div class="back-link-container">
+        <%= link_to "Home > ", authenticated_root_path, class: "navigational-link" %>
+        <%= link_to "Back", :back, class: "back-link" %>
+      </div>
       <%= render 'shared/user_info', user: @user %>
       <div class="posts-comments">
         <% @posts.each_with_index do |post, post_no| %>

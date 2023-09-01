@@ -1,5 +1,9 @@
 <%= link_to user_post_path(user, post) do %>
   <div class="post">
+      <div class="back-link-container">
+        <%= link_to "Home > ", authenticated_root_path, class: "navigational-link" %>
+        <%= link_to "Back", :back, class: "back-link" %>
+      </div>
     <div class="post-heading">
       <div class="content">
         <h3><%= post.title %></h3>
