@@ -231,17 +231,6 @@ a {
   background-color: #cbe7d2;
 }
 
-.comments-likes {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.comments {
-  padding: 5px;
-}
-
-
 .logout-btn:hover {
   background-color: #474747;
   color: #cacaca;
