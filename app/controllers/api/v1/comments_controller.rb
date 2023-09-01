@@ -1,5 +1,6 @@
 class Api::V1::CommentsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  load_and_authorize_resource
 
   def index
     comments = Comment.where(author_id: params[:user_id])
@@ -19,6 +20,6 @@ class Api::V1::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:text)
+    params.require(:comment).permit(:text)
   end
 end
