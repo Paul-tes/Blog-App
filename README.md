@@ -26,8 +26,6 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-<!-- PROJECT DESCRIPTION -->
-
 # 📖 Blog App <a name="about-project"></a>
 
 **Blog App** is a web app that allows users to post, edit & save their blog posts with time-stamped entries aswell as view other bloggers post.
