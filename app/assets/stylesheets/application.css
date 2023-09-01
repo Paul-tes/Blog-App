@@ -217,6 +217,31 @@ a {
   border-radius: 4px;
 }
 
+.btn a {
+  color: #000;
+}
+
+.like-btn {
+  border: 1px solid #52ad6a;
+  color: #21452a;
+  background-color: #dcefe1;
+}
+
+.like-btn:hover {
+  background-color: #cbe7d2;
+}
+
+.comments-likes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.comments {
+  padding: 5px;
+}
+
+
 .logout-btn:hover {
   background-color: #474747;
   color: #cacaca;
@@ -231,6 +256,45 @@ a {
   display: flex;
   flex-direction: row;
   gap: 5px;
+}
+
+.alert {
+  background-color: #f3d8da;
+  color: #692326;
+}
+
+.remove-btn {
+  width: 30px;
+  height: 30px;
+  padding: 4px 8px;
+  background-color: #f3d8da;
+  color: #692326;
+  border: 0.5px solid #f3d8da;
+  border-radius: 50%;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  border: 0.5px solid #692326;
+}
+
+.delete-post-btn {
+  padding: 0.4rem 1rem;
+  border-radius: 4rem;
+  color: #ee1b26;
+  border: 1px solid#ee1b26;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 10px;
+  background-color: transparent;
+  font-size: 10px;
+}
+
+.delete-post-btn:hover {
+  border: 1px solid;
+  background: #ee1b26;
+  color: #fff;
 }
 
 @media (max-width: 800px) {
