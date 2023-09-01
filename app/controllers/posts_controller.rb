@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource param_method: :posts_params
+
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.includes(:comments)
+    @posts = Post.where(author_id: params[:user_id])
   end
 
   def new
@@ -20,6 +22,15 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.includes(:author).find(params[:id])
+    @user = current_user
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.author.decrement!(:posts_counter)
+    @post.destroy
+    flash[:success] = 'Post was successfully deleted'
+    redirect_to user_path(@post.author)
   end
 
   private
